@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EventService {
+public class EventoService {
 
     @Autowired
     private EventoRepository eventoRepository;
 
-    public Evento event(Evento event, Utente organizer) {
+    public Evento createEvent(Evento event, Utente organizer) {
         event.setOrganizzatore(organizer); // Imposta l'organizzatore
         return eventoRepository.save(event);
     }
@@ -28,7 +28,7 @@ public class EventService {
         return eventoRepository.findAll();
     }
 
-    public Evento eEvent(Long id, Evento evento, Utente organizer) {
+    public Evento updateEvent(Long id, Evento evento, Utente organizer) {
         return eventoRepository.findById(id).map(event -> {
             if (!event.getOrganizzatore().equals(organizer)) {
                 throw new RuntimeException("Non sei l'organizzatore di questo evento!");
@@ -52,5 +52,7 @@ public class EventService {
 
         eventoRepository.deleteById(id);
     }
+
+
 }
 

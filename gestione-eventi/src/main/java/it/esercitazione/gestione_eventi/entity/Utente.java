@@ -1,6 +1,5 @@
 package it.esercitazione.gestione_eventi.entity;
 
-import it.esercitazione.gestione_eventi.auth.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +18,6 @@ public class Utente {
     private  Long id;
     private String username;
     private String password;
-    private Role role;
 
 
 

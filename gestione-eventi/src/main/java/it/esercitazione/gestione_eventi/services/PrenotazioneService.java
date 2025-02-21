@@ -34,8 +34,8 @@ public class PrenotazioneService {
         return prenotazioneRepository.save(prenotazione);
     }
 
-    public List<Prenotazione> getUserPrenotaziones(Utente user) {
-        return prenotazioneRepository.findByUser(user);
+    public List<Prenotazione> getUserPrenotaziones(Utente utente) {
+        return prenotazioneRepository.findByUtente(utente);
     }
 
     public void cancelPrenotazione(Long prenotazioneId, Utente user) {

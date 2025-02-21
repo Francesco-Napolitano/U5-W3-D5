@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,5 +26,13 @@ public class UtenteService {
 
     public Optional<Utente> findUserByUsername(String username) {
         return utenteRepository.findByUsername(username);
+    }
+
+    public Utente getUtenteById(Long id) {
+        return utenteRepository.findById(id).orElseThrow(() -> new RuntimeException("Utente non trovato"));
+    }
+
+    public List<Utente> getAllUtenti() {
+        return utenteRepository.findAll();
     }
 }

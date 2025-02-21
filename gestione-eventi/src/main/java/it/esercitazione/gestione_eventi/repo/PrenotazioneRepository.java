@@ -10,5 +10,5 @@ import java.util.List;
 
 @Repository
 public interface PrenotazioneRepository extends JpaRepository<Prenotazione, Long> {
-    List<Prenotazione> findByUser(Utente user);
+    List<Prenotazione> findByUtente(Utente user);
 }
