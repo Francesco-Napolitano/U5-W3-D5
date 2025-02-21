@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -17,9 +20,12 @@ public class Evento {
     private String title;
     private String description;
     private String location;
-    private String startDate;
-    private String maxPartecipants;
-    private String organizer;
+    private LocalDateTime startDate;
+    private int maxPartecipants;
+
+    @ManyToOne
+    @JoinColumn(name = "organizzatore_id")
+    private Utente organizzatore;
 
 
 

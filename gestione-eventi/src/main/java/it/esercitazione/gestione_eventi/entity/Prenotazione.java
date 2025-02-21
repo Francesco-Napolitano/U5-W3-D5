@@ -25,10 +25,8 @@ public class Prenotazione {
     @JoinColumn(name = "evento_id")
     private Evento evento;
 
-    @ManyToMany
-    @JoinTable(name = "prenotazioni_utenti",
-            joinColumns = @JoinColumn(name = "prenotazione_id"),
-            inverseJoinColumns = @JoinColumn(name = "utente_id"))
-    private Set<Utente> utenti;
+    @ManyToOne
+    @JoinColumn(name = "utente_id")
+    private Utente utente;
 
 }
